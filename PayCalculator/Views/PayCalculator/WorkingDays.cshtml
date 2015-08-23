@@ -1,0 +1,29 @@
+﻿@model PayCalculator.Models.WorkingDays
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorkingDays</title>
+</head>
+<body>
+Please check the days of the week that you work:
+
+    @using (Html.BeginForm("WorkingDays", "PayCalculator"))
+    {
+        <div>@Html.CheckBoxFor(model => model.Monday) @Html.Label("lbMonday", "Monday")</div>
+        <div>@Html.CheckBoxFor(model => model.Tuesday) @Html.Label("lbTuesday", "Tuesday")</div>
+        <div>@Html.CheckBoxFor(model => model.Wednesday) @Html.Label("lbWednesday", "Wednesday")</div>
+        <div>@Html.CheckBoxFor(model => model.Thursday) @Html.Label("lbThursday", "Thursday")</div>
+        <div>@Html.CheckBoxFor(model => model.Friday) @Html.Label("lbFriday", "Friday")</div>
+        <div>@Html.CheckBoxFor(model => model.Saturday) @Html.Label("lbSaturday", "Saturday")</div>
+        <div>@Html.CheckBoxFor(model => model.Sunday) @Html.Label("lbSunday", "Sunday")</div>
+        <input type="Submit" value="Next"/>
+    }
+</body>
+</html>

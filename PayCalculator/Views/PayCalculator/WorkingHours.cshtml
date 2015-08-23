@@ -1,0 +1,44 @@
+﻿@model IList<PayCalculator.Models.WorkingHoursView>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorkingHours</title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("WorkingHours", "PayCalculator"))
+    {
+        
+            <table>
+                <tr>
+                    <td>Day</td>
+                    <td>Start Time</td>
+                    <td>End Time</td>
+                    <td>Lunch Break Taken?</td>
+                    <td>Lunch Break Start</td>
+                    <td>Lunch Break End</td>
+                </tr>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Model[i].Day @Html.TextBoxFor(model => model[i].WeekdayId, new {hidden=false})</td>
+                        <td>@Html.TextBoxFor(model => model[i].StartTime)</td>
+                        <td>@Html.TextBoxFor(model => model[i].EndTime)</td>
+                        <td>@Html.CheckBoxFor(model => model[i].LunchBreak)</td>
+                        <td>@Html.TextBoxFor(model => model[i].LunchStart)</td>
+                        <td>@Html.TextBoxFor(model => model[i].LunchEnd)</td>
+                    </tr>
+                }
+            </table>
+        
+            <input type="submit" value="Save"/>
+    }
+</div>
+</body>
+</html>

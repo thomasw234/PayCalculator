@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Salary</title>
+</head>
+<body>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        @ViewBag.ErrorMessage
+    }
+
+    @using (Html.BeginForm(actionName: "UpdateSalary", controllerName: "PayCalculator"))
+    {
+        @Html.TextBox("newSalary", (decimal)ViewBag.Salary);
+        <input type="submit" value="Next"/>
+    }
+</body>
+</html>
